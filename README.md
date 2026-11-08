@@ -68,5 +68,4 @@ El programa permite que una placa vuelva a ingresar cuando ya tiene una salida r
 | 6. Hora invalida | Escribir hora 25 o minuto 70 | Solicita un valor dentro del rango permitido. |
 | 7. Limite diario | Intentar registrar un ingreso despues de completar 40 | Rechaza el registro por superar el limite. |
 
-## Compilar y ejecutar
 
