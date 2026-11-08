@@ -70,17 +70,3 @@ El programa permite que una placa vuelva a ingresar cuando ya tiene una salida r
 
 ## Compilar y ejecutar
 
-Se necesita tener instalado el JDK de Java.
-
-En la terminal, dentro de la carpeta que contiene `Main.java`, ejecutar:
-
-```bash
-javac Main.java
-java Main
-```
-
-## Publicar en GitHub
-1. Crear un repositorio nuevo y marcarlo como **Public**.
-2. Subir `Main.java` y `README.md`.
-3. Guardar los cambios y copiar el enlace del repositorio.
-4. Entregar ese enlace junto con los nombres de todos los integrantes.
