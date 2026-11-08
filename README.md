@@ -4,9 +4,9 @@
 Programa de consola desarrollado en Java para registrar hasta 40 ingresos de vehiculos durante el dia en un conjunto residencial.
 
 ## Integrantes
-- Estudiante 1: [Nombre completo]
-- Estudiante 2: [Nombre completo]
-- Estudiante 3: [Nombre completo]
+- Estudiante 1: Jose Miguel Meza
+- Estudiante 2: Juan David Figueroa
+- Estudiante 3: Xavier
 
 Completar esta lista con los integrantes reales del grupo antes de entregar.
 
