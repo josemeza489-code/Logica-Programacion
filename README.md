@@ -87,18 +87,5 @@ No se crean objetos propios ni se utilizan constructores, herencia o atributos d
 | Mejor operario | OP01 total 50; OP02 total 60 | Se identifica OP02 |
 | Promedio general | Dos operarios con 50 y 60 unidades semanales | Promedio diario por operario: 11 |
 
-## Compilar y ejecutar
-Desde la carpeta donde están los cuatro archivos, ejecutar:
-
-```bash
-javac Main.java Inventario.java Parqueadero.java Produccion.java
-java Main
-```
-
-## Publicación en GitHub
-1. Crear un repositorio nuevo y marcarlo como público.
-2. Subir los cuatro archivos `.java` y este `README.md`.
-3. Verificar que el repositorio permita ver y descargar los archivos.
-4. Copiar el enlace del repositorio y pegarlo en la entrega del taller.
 
 **Importante:** el proyecto no puede publicar un repositorio en la cuenta del grupo sin autorización y acceso a esa cuenta. El grupo debe crear el repositorio y subir estos archivos.
