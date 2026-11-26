@@ -1,71 +1,104 @@
-# Sistema de control de parqueadero residencial
+# Taller de algoritmos modulares
 
-## Descripcion
-Programa de consola desarrollado en Java para registrar hasta 40 ingresos de vehiculos durante el dia en un conjunto residencial.
+## Casos seleccionados
+Se desarrollaron los casos **2, 4 y 5** del taller:
+1. Control de inventario para una cafeteria universitaria.
+2. Control de parqueadero para conjunto residencial.
+3. Control de produccion para una fabrica de empaques.
 
 ## Integrantes
-- Estudiante 1: Jose Miguel Meza
-- Estudiante 2: Juan David Figueroa
-- Estudiante 3: Xavier
+- José Miguel Meza Mercado
+- Juan David Figueroa
+- Xavier Echeverrí
 
-Completar esta lista con los integrantes reales del grupo antes de entregar.
 
-## Analisis del problema
 
-### Entradas
-- Placa del vehiculo.
-- Torre que visita.
-- Numero de apartamento.
-- Tipo de vehiculo: carro, moto o bicicleta.
-- Hora y minuto de ingreso.
-- Hora y minuto de salida.
-- Opcion seleccionada en el menu.
+## Organización de archivos
+- `Main.java`: contiene únicamente el menú principal y llama al módulo seleccionado.
+- `Inventario.java`: contiene el módulo del caso 2.
+- `Parqueadero.java`: contiene el módulo del caso 4.
+- `Produccion.java`: contiene el módulo del caso 5.
 
-### Procesos
-1. Verificar que no se hayan registrado 40 ingresos.
-2. Revisar que la placa no tenga otro ingreso sin salida registrada.
-3. Guardar los datos del vehiculo en vectores y su horario en una matriz.
-4. Al registrar la salida, buscar la placa que se encuentra activa y guardar la hora de salida.
-5. Calcular la permanencia en minutos y convertirla a horas y minutos.
-6. Recorrer los registros para contar los ingresos por tipo.
-7. Comparar las permanencias para identificar el registro con mayor tiempo.
+Cada módulo tiene su propio menú y regresa al menú principal al elegir la opción 0. Se comparte un único `Scanner` para leer los datos.
 
-### Salidas
-- Confirmacion o rechazo del ingreso.
-- Confirmacion de salida y tiempo de permanencia.
-- Datos del vehiculo consultado.
-- Cantidad de ingresos de carros, motos y bicicletas.
-- Vehiculo con mayor permanencia.
+## Análisis general del problema
+El taller solicita escoger tres casos y permitir que el usuario elija cuál ejecutar desde un menú principal. Para resolverlo, cada caso se separó en un archivo Java independiente. El método `main` solo muestra el menú, recibe la opción y ejecuta el módulo correspondiente.
+
+### Caso 2. Inventario de cafetería
+**Entradas:** código, nombre, precio, cantidad, categoría, código del producto vendido y unidades a vender.
+
+**Procesos:** registrar hasta 20 productos, comprobar que el código no esté repetido, buscar productos, verificar existencias antes de vender, descontar unidades y acumular el valor de las ventas.
+
+**Salidas:** confirmación de registro o venta, inventario actualizado, productos agotados y total vendido durante la ejecución.
+
+**Validaciones:** código único, campos de texto no vacíos, precio positivo, cantidad no negativa y stock suficiente para realizar una venta.
+
+### Caso 4. Parqueadero residencial
+**Entradas:** placa, torre, apartamento, tipo de vehículo y horas de ingreso y salida.
+
+**Procesos:** almacenar hasta 40 ingresos, comprobar que una placa no tenga otro ingreso activo, registrar salidas, calcular permanencia y contar vehículos por tipo.
+
+**Salidas:** confirmación de ingreso o salida, consulta de vehículo, tiempo de permanencia, cantidades por tipo y vehículo con mayor permanencia.
+
+**Validaciones:** límite de 40 registros, placa no repetida mientras siga dentro, hora entre 0 y 23 y minuto entre 0 y 59.
+
+### Caso 5. Producción de fábrica
+**Entradas:** código y nombre de hasta 10 operarios, más la producción de cada uno durante cinco días.
+
+**Procesos:** guardar los datos en vectores y una matriz de 10 filas por 5 columnas, sumar la producción semanal, comparar operarios y calcular el promedio diario del grupo.
+
+**Salidas:** producción diaria y semanal por operario, mejor operario, promedio general y días cuya producción queda por debajo del promedio diario.
+
+**Validaciones:** código único, datos de texto no vacíos y producción diaria igual o mayor que cero.
 
 ## Estructuras utilizadas
-- **Vectores:** `placas`, `torres`, `apartamentos`, `tipos` y `tieneSalida`.
-- **Matriz:** `horas`, con cuatro columnas: hora de ingreso, minuto de ingreso, hora de salida y minuto de salida.
-- **Condicionales:** validan opciones, tipos, placas y estados de salida.
-- **Ciclos:** controlan el menu, la validacion de datos y los recorridos de los registros.
-- **Metodos static:** separan el registro, la consulta, las estadisticas y los calculos. No se crean objetos propios ni se aplican conceptos de POO.
+- **Variables:** contadores, opciones, acumuladores y resultados.
+- **Condicionales:** validaciones, selección de opciones y clasificación de resultados.
+- **Ciclos:** menús repetitivos y recorridos de vectores y matrices.
+- **Vectores:** datos de productos, vehículos y operarios.
+- **Matrices:** horarios del parqueadero y producción de los cinco días.
+- **Funciones y procedimientos:** métodos separados para buscar, validar, calcular y mostrar información.
 
-## Funcionamiento
-1. Ejecutar el programa.
-2. Elegir una opcion del menu.
-3. Para registrar un ingreso, escribir los datos solicitados.
-4. Para registrar una salida, escribir la placa y la hora de salida.
-5. Consultar una placa para ver su registro mas reciente.
-6. Consultar las estadisticas o el registro con mayor permanencia.
-
-El programa permite que una placa vuelva a ingresar cuando ya tiene una salida registrada. Cada nuevo ingreso ocupa uno de los 40 registros diarios.
-
-**Nota sobre las horas:** el ejercicio solicita horas, pero no fechas. Por eso, el calculo considera que la permanencia no supera 24 horas y admite que la salida ocurra despues de medianoche. Para un vehiculo que aun no ha salido, la permanencia se calcula usando la hora actual del computador.
+No se crean objetos propios ni se utilizan constructores, herencia o atributos de instancia. Java requiere que el código esté dentro de clases, pero la solución utiliza métodos `static` y arreglos con un enfoque procedural.
 
 ## Pruebas de escritorio
 
-| Prueba | Datos o accion | Resultado esperado |
+### Inventario
+| Prueba | Datos | Resultado esperado |
 |---|---|---|
-| 1. Ingreso correcto | Placa ABC123, carro, ingreso 08:30 | El sistema confirma el ingreso. |
-| 2. Placa duplicada | Intentar registrar ABC123 otra vez sin salida | El sistema rechaza el ingreso. |
-| 3. Salida | ABC123 sale a las 10:15 | Registra la salida y calcula 1 hora y 45 minutos. |
-| 4. Reingreso | Registrar ABC123 despues de su salida | El sistema permite el nuevo ingreso. |
-| 5. Consulta inexistente | Consultar una placa no registrada | Informa que no existe el registro. |
-| 6. Hora invalida | Escribir hora 25 o minuto 70 | Solicita un valor dentro del rango permitido. |
-| 7. Limite diario | Intentar registrar un ingreso despues de completar 40 | Rechaza el registro por superar el limite. |
+| Registrar producto | P01, Agua, precio 2500, stock 8, Bebidas | Producto registrado |
+| Venta válida | P01, 3 unidades | Stock queda en 5 y venta suma $7500 |
+| Venta sin stock | P01, 7 unidades cuando quedan 5 | Venta rechazada; stock permanece en 5 |
+| Producto agotado | Registrar stock 0 | Aparece en la lista de agotados |
 
+### Parqueadero
+| Prueba | Datos | Resultado esperado |
+|---|---|---|
+| Ingreso | ABC123, carro, 08:30 | Ingreso registrado |
+| Placa duplicada | ABC123 intenta entrar sin salida | Ingreso rechazado |
+| Salida | ABC123 sale a las 10:15 | Permanencia de 1 hora y 45 minutos |
+| Reingreso | ABC123 vuelve después de salir | Nuevo ingreso permitido |
 
+### Producción
+| Prueba | Datos | Resultado esperado |
+|---|---|---|
+| Registrar operario | OP01, Ana, 10, 12, 8, 10, 10 | Total semanal: 50 |
+| Producción negativa | Ingresar -3 en un día | Dato rechazado y se solicita nuevamente |
+| Mejor operario | OP01 total 50; OP02 total 60 | Se identifica OP02 |
+| Promedio general | Dos operarios con 50 y 60 unidades semanales | Promedio diario por operario: 11 |
+
+## Compilar y ejecutar
+Desde la carpeta donde están los cuatro archivos, ejecutar:
+
+```bash
+javac Main.java Inventario.java Parqueadero.java Produccion.java
+java Main
+```
+
+## Publicación en GitHub
+1. Crear un repositorio nuevo y marcarlo como público.
+2. Subir los cuatro archivos `.java` y este `README.md`.
+3. Verificar que el repositorio permita ver y descargar los archivos.
+4. Copiar el enlace del repositorio y pegarlo en la entrega del taller.
+
+**Importante:** el proyecto no puede publicar un repositorio en la cuenta del grupo sin autorización y acceso a esa cuenta. El grupo debe crear el repositorio y subir estos archivos.
